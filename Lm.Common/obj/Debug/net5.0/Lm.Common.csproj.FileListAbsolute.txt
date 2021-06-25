@@ -1,0 +1,15 @@
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.AssemblyInfoInputs.cache
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.AssemblyInfo.cs
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.csproj.CoreCompileInputs.cache
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\Lm.Common.deps.json
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\Lm.Common.dll
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\ref\Lm.Common.dll
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\Lm.Common.pdb
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Json.dll
+D:\mywebproject\Lm.Common\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Json.xml
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.csproj.CopyComplete
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.dll
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\ref\Lm.Common.dll
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.pdb
+D:\mywebproject\Lm.Common\obj\Debug\net5.0\Lm.Common.csprojAssemblyReference.cache

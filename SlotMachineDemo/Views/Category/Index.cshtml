@@ -1,0 +1,21 @@
+﻿@section BodyTitle{
+    Category management
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Category</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div id="jsGridCategory"></div>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+
+@section Scripts{
+    <script>
+        Category.init(jQuery('#jsGridCategory'));
+    </script>
+
+}

@@ -1,0 +1,96 @@
+﻿*{margin: 0;padding: 0;font-family: "思源黑体";}
+ul li{list-style: none;}
+#wrapper-index {
+  position: absolute;
+  background: url(../images/bg.png) no-repeat center top;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+}
+
+#wrapper-index1 {
+    position: absolute;
+    background: url(../images/bg1.png) no-repeat center top;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
+.logo{position: relative;top: .36rem;}
+.logo img {width: 1.89rem;left: .3rem;position: relative;}
+.logo h1{text-align: right;font-size: .24rem;font-weight: normal;}
+.logo a{display: inline-block;color: #fff;background-color: #000;border-radius: .3rem;text-decoration: none;margin-right: .3rem;padding: .1rem .2rem;}
+
+.btn1{position: relative;top:74%;}
+.btn1 a{display: block;font-size: .24rem;color: #fff;text-decoration: none;text-align: center;padding-top: .15rem;}
+.btn1 img {width: 3.26rem;display: block;margin: 0 auto;}
+
+.info{width: 90%;margin: 0 auto;background-color: #fff;border-radius: .15rem;position: relative;top: 1.5rem;height: 80%;}
+.info .info-ul{width: 100%;padding-top: .8rem;}
+.info .info-ul li{text-align: center;margin:.4rem auto;}
+.info .info-ul li input,.info .info-ul li select{padding: .15rem 0 .15rem .25rem;border-radius: .4rem;border: 0;outline: none;font-size: .28rem;color: #999;width: 80%;background-color: #f6f6f6;}
+.info .info-ul li select{box-sizing: content-box;color: inherit;appearance: none;
+    -webkit-appearance: none;padding: .15rem .2rem .15rem 0;
+    -moz-appearance: none;position: relative;width:85%;
+    background: url(../images/tran.png) no-repeat right center transparent;
+    background-size: .2rem .2rem;}
+.info .info-ul li:nth-child(1){
+    width: 83%;border-radius: .4rem;
+    background-color: #f6f6f6;}
+/*.info .info-ul li select:after{ content: "";
+      width: 14px;
+      height: 8px;
+      background: url(../images/tran.png) no-repeat center;
+   
+    position: absolute;
+      right: 20px;
+      top: 41%;
+  }*/
+
+a.option{
+    font-size: .28rem;
+    display: block;
+    text-align: center;
+    width: 90%;
+    margin:1.3rem auto 0;color: #fff;
+    text-decoration: none;
+    border-radius: .3rem;
+    padding: .15rem 0;
+    background: url(../images/btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.rule{width: 90%;margin: 0 auto;background-color: #fff;border-radius: .15rem;position: relative;top: 1.5rem;height: 83%;}
+.rule h1{text-align: center;padding: .3rem 0;}
+.rule h1 img{width: 50%;}
+.rule ul{width: 94%;margin: 0 auto;}
+.rule ul li{display: flex;font-size: .28rem;color: #333;margin-top: .05rem;justify-content: space-between;}
+.rule ul li span{position: relative;top: .05rem;text-align: center;display: inline-block;border-radius:.3rem;background-color: #ff0000;color: #fff;width:.35rem;height: .35rem;line-height: .35rem;}
+.rule ul li p{width: 92.4%;}
+.rule ul li i{width: 25%;font-style: normal;}
+.rule h2{font-size: .3rem;color: #333;width: 94%;margin:.3rem auto .05rem;}
+.btns{width: 94%;margin:.3rem auto 0;display: flex;justify-content: space-between;flex-wrap: wrap;}
+.btns a{display: inline-block;background: url(../images/btn.png)no-repeat;
+background-size: 100% 100%;color: #fff;font-size: .28rem;text-decoration: none;border-radius: .3rem;
+width: 45%;text-align: center;height: .66rem;line-height: .66rem;
+}
+.btns p{font-size: .24rem;color: #666;text-align: center;width: 100%;padding-top: 1.2rem;}
+.btn1 p{font-size: .24rem;color: #f6f6f6;text-align: center;width: 100%;padding-top: .4rem;}
+
+.activity{position: absolute;right: 0;width: 30%;top: 15%;}
+.activity a img{width: 100%;}
+
+.box {margin: 10px;column-count: 3;column-gap: 10px;position: relative;top: 1.3rem;}
+.item {margin-bottom: 5px; }
+.item img{width: 100%;height:100%;}
+
+.price{width: 92%;margin: 0 auto;position: relative;top:20%;}
+.price-ul{width: 100%;display: flex;justify-content: space-between;flex-wrap: wrap;}
+.price-ul li{border-radius: .1rem;height: 2.25rem;text-align: center;width: 47%;background-color: #fff;margin-top: .3rem;border: 1px solid #e14900;}
+.price-ul li img{width: 50%;padding-top: .2rem;}
+.price-ul li p{font-size: .24rem;color: #333;}
+
+.container {display: flex;width: 94%;margin: 0 auto;justify-content: space-between;}
+.img-container{margin-top: .1rem;}
+.col {width: 30%;}
+.col img {width: 100%;}
