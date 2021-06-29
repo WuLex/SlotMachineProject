@@ -1,22 +1,29 @@
-﻿<!DOCTYPE html>
+﻿@{
+   Layout = null;
+}
+
+
+<!DOCTYPE html>
 <html lang="zh">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>决战双十一</title>
 
     <link rel="stylesheet" href="~/css/app.css">
-    <link rel="stylesheet" href="~/css/style.css"/>
-    <link rel="stylesheet" href="~/css/sweetalert2.css"/>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/sweetalert2.css" />
     <script type="text/javascript" src="~/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="~/js/rem.js"></script>
     <script type="text/javascript" src="~/js/sweetalert2.js"></script>
-    <script type="text/javascript" src="js/HtmlUtil.js"></script>
+    <script type="text/javascript" src="/js/HtmlUtil.js"></script>
     <style type="text/css">
         /*alert弹出框，字体大小修改*/
-        .swal2-content { font-size: 0.2rem; }
+        .swal2-content {
+            font-size: 0.2rem;
+        }
 
         .swal2-confirm.swal2-styled {
             font-size: 0.2rem;
@@ -28,268 +35,269 @@
             width: 80%;
         }
 
-        .swal2-html-container { font-size: 0.23rem; }
+        .swal2-html-container {
+            font-size: 0.23rem;
+        }
     </style>
 </head>
 
 <body>
-<div class="" id="wrapper-index1">
-    <div class="logo">
-        <img src="images/logo.png"/>
-    </div>
-    <div class="game">
-        <!--抽奖滚动-->
-        <div class="slotwrapper" id="scrolllist">
-            <ul>
-                <%--
-                <li>
-                    <img src="images/game1.png"/>
-                </li>
-                <li>
-                    <img src="images/game2.png"/>
-                </li>
-                <li>
-                    <img src="images/game3.png"/>
-                </li>
-                <li>
-                    <img src="images/game4.png"/>
-                </li>
-                <li>
-                    <img src="images/game3.png"/>
-                </li>
-                <li>
-                    <img src="images/game4.png"/>
-                </li>
-                <li>
-                    <img src="images/game3.png"/>
-                </li>
-                <li>
-                    <img src="images/game4.png"/>
-                </li>
-                <li>
-                    <img src="images/game3.png"/>
-                </li>
-                <li>
-                    <img src="images/game4.png"/>
-                </li>--%>
-
-                @ViewBag.sbProductlistone
-            </ul>
-            <ul>
-                @ViewBag.sbProductlisttwo
-            </ul>
-            <ul>
-                @ViewBag.sbProductlistthree
-            </ul>
-            <ul>
-                @ViewBag.sbProductlistfour
-            </ul>
+    <div class="" id="wrapper-index1">
+        <div class="logo">
+            <img src="/images/logo.png" />
         </div>
+        <div class="game">
+            <!--抽奖滚动-->
+            <div class="slotwrapper" id="scrolllist">
+                <ul>
+                    @*<li>
+                        <img src="images/game1.png" />
+                    </li>
+                    <li>
+                        <img src="images/game2.png" />
+                    </li>
+                    <li>
+                        <img src="images/game3.png" />
+                    </li>
+                    <li>
+                        <img src="images/game4.png" />
+                    </li>
+                    <li>
+                        <img src="images/game3.png" />
+                    </li>
+                    <li>
+                        <img src="images/game4.png" />
+                    </li>
+                    <li>
+                        <img src="images/game3.png" />
+                    </li>
+                    <li>
+                        <img src="images/game4.png" />
+                    </li>
+                    <li>
+                        <img src="images/game3.png" />
+                    </li>
+                    <li>
+                        <img src="images/game4.png" />
+                    </li>*@
 
-        <div class="game-btn">
-            <a href="javascript:void(0);">
-                <img src="images/btn.png"/>
-            </a>
-        </div>
-
-        <!--中奖轮播-->
-        <div class="i35-con">
-            <div class="content" style="display: block;">
-                <ul class="scroll" id="scrollwin">
-                    @ViewBag.sbscrolllist
+                    @Html.Raw(ViewBag.sbProductlistone)
                 </ul>
+                <ul>
+                    @Html.Raw(ViewBag.sbProductlisttwo)
+                </ul>
+                <ul>
+                    @Html.Raw(ViewBag.sbProductlistthree)
+                </ul>
+                <ul>
+                    @Html.Raw(ViewBag.sbProductlistfour)
+                </ul>
+            </div>
+
+            <div class="game-btn">
+                <a href="javascript:void(0);">
+                    <img src="/images/btn.png" />
+                </a>
+            </div>
+
+            <!--中奖轮播-->
+            <div class="i35-con">
+                <div class="content" style="display: block;">
+                    <ul class="scroll" id="scrollwin">
+                        @Html.Raw(ViewBag.sbscrolllist)
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!--弹框-->
-<div class="mask">
-    <div class="masks">
-        <h1>
-            <img src="images/close.png"/>
-        </h1>
-        <div class="mask-bg">
-            <ul id="masklist">
-                <li>
-                    <img src="images/list11-1.png"/>
-                    <p>千禧枕</p>
-                </li>
-                <li>
-                    <img src="images/list16-1.png"/>
-                    <p>床用靠垫</p>
-                </li>
-                <li>
-                    <img src="images/list21-1.png"/>
-                    <p>圈枕</p>
-                </li>
-                <li>
-                    <img src="images/list17-1.png"/>
-                    <%--
-                    <p style="position: relative; top: -.07rem;">G-Curve 电动床</p>--%>
+    <!--弹框-->
+    <div class="mask">
+        <div class="masks">
+            <h1>
+                <img src="/images/close.png" />
+            </h1>
+            <div class="mask-bg">
+                <ul id="masklist">
+                    <li>
+                        <img src="/images/list11-1.png" />
+                        <p>千禧枕</p>
+                    </li>
+                    <li>
+                        <img src="/images/list16-1.png" />
+                        <p>床用靠垫</p>
+                    </li>
+                    <li>
+                        <img src="/images/list21-1.png" />
+                        <p>圈枕</p>
+                    </li>
+                    <li>
+                        <img src="/images/list17-1.png" />
+                         
+                        @*<p style="position: relative; top: -.07rem;">G-Curve 电动床</p>*@ 
 
-                    <p>40+电动床</p>
-                </li>
-            </ul>
+                        <p>40+电动床</p>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <%--<button type="button" id="btntest2">开始!</button>--%>
     </div>
-    <%--<button type="button" id="btntest2">开始!</button>--%>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script src="js/lottery.js"></script>
-<script src="./js/i5scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="/js/i5scroll.js"></script>
 
-<script type="text/javascript">
-    $(function() {
-        //$('.game-btn a').click(function() {
-        //    $('.mask').show();
-        //});
+    <script type="text/javascript">
+        $(function () {
+            //$('.game-btn a').click(function() {
+            //    $('.mask').show();
+            //});
 
-        //$('.masks h1 img').click(function() {
-        //    $('.mask').hide();
-        //});
+            //$('.masks h1 img').click(function() {
+            //    $('.mask').hide();
+            //});
 
-        $(".scroll").i5Scroll({
-            mode: 'CSS', //默认通过CSS方式滚动
-            cssSpeed: 5 // 时间默认5s
-        });
-    })
-</script>
-<script type="text/javascript">
-    $(function() {
-        //var sound = new Audio('sounds/spinning.mp3');
-        var ding = new Audio('sounds/ding.wav');
-
-        //循环播放声音
-        //sound.addEventListener('ended',
-        //    function() {
-        //        this.currentTime = 0;
-        //        this.play();
-        //    },
-        //    false);
-
-        var numArry = new Array();
-        $('.game-btn a').click(function() {
-            //禁用：
-            $(".game-btn a").unbind("click");
-            try {
-                //console.log("点击了！");
-                startPlay();
-            } catch (e) {
-                //可用
-                $('.game-btn a').bind("click", startPlay);
-            }
-
-        });
-
-        function startPlay() {
-            //初始化数组
-            numArry.splice(0, numArry.length);
-            //sound.play(); //点击后开始播放声音
-            $.ajax({
-                type: "GET",
-                url: "../ajax/ChouJiangHandler.ashx?op=getRandomArry",
-                success: function(data) {
-                    if (data.code > 0 && data.IdArry.length > 0) {
-                        var arrys = data.IdArry.split(',');
-
-                        $('#scrolllist ul').playSpin({
-                            endNum: arrys,
-                            //endNum: 0,
-                            time: 2500,
-                            loops: 2,
-                            stopSeq: 'leftToRight',
-                            onEnd: function(numid) {
-                                ding.play(); // 每个停止后播放
-                                numArry.push(numid);
-                            },
-                            onFinish: addReward
-                        });
-
-                    } else {
-                        //sound.pause(); //停止播放
-                        $('.game-btn a').bind("click", startPlay);
-                        Swal.fire({
-                            text: data.msg
-                        });
-                    }
-                }
+            $(".scroll").i5Scroll({
+                mode: 'CSS', //默认通过CSS方式滚动
+                cssSpeed: 5 // 时间默认5s
             });
-        }
+        })
+           
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            //var sound = new Audio('sounds/spinning.mp3');
+            var ding = new Audio('/sounds/ding.wav');
 
-        var seqnum = "";
+            //循环播放声音
+            //sound.addEventListener('ended',
+            //    function() {
+            //        this.currentTime = 0;
+            //        this.play();
+            //    },
+            //    false);
 
-        function addReward() {
-            //sound.pause(); //要停止循环声音
-            $('.game-btn a').bind("click", startPlay);
+            var numArry = new Array();
+            $('.game-btn a').click(function () {
+                //禁用：
+                $(".game-btn a").unbind("click");
+                try {
+                    //console.log("点击了！");
+                    startPlay();
+                } catch (e) {
+                    //可用
+                    $('.game-btn a').bind("click", startPlay);
+                }
 
-            if (numArry.length != 4) {
-                Swal.fire({
-                    text: "抽奖的数据存在问题,请刷新页面,稍后再试！"
+            });
+
+            function startPlay() {
+                //初始化数组
+                numArry.splice(0, numArry.length);
+                //sound.play(); //点击后开始播放声音
+                $.ajax({
+                    type: "GET",
+                    url: "../ajax/ChouJiangHandler.ashx?op=getRandomArry",
+                    success: function (data) {
+                        if (data.code > 0 && data.IdArry.length > 0) {
+                            var arrys = data.IdArry.split(',');
+
+                            $('#scrolllist ul').playSpin({
+                                endNum: arrys,
+                                //endNum: 0,
+                                time: 2500,
+                                loops: 2,
+                                stopSeq: 'leftToRight',
+                                onEnd: function (numid) {
+                                    ding.play(); // 每个停止后播放
+                                    numArry.push(numid);
+                                },
+                                onFinish: addReward
+                            });
+
+                        } else {
+                            //sound.pause(); //停止播放
+                            $('.game-btn a').bind("click", startPlay);
+                            Swal.fire({
+                                text: data.msg
+                            });
+                        }
+                    }
                 });
-            } else {
-                seqnum = numArry.join(",");
             }
 
-            $.ajax({
-                type: "POST",
-                url: "../ajax/ChouJiangHandler.ashx?op=addReward",
-                data: { "seqnum": seqnum },
-                async: false,
-                success: function(data) {
-                    if (data.code > 0) {
-                        getRewardwins();
-                    } else {
-                        Swal.fire({
-                            text: data.msg
-                        });
-                    }
+            var seqnum = "";
+
+            function addReward() {
+                //sound.pause(); //要停止循环声音
+                $('.game-btn a').bind("click", startPlay);
+
+                if (numArry.length != 4) {
+                    Swal.fire({
+                        text: "抽奖的数据存在问题,请刷新页面,稍后再试！"
+                    });
+                } else {
+                    seqnum = numArry.join(",");
                 }
-            });
-        }
 
-        function getRewardwins() {
-            $.ajax({
-                type: "GET",
-                url: "../ajax/ChouJiangHandler.ashx?op=getRewardwins",
-                success: function(data) {
-                    if (data.code > 0) {
-                        //alert(data.htmlstr);
-                        $("#scrollwin").html(HtmlUtil.htmlDecode(data.htmlstr));
-                        $(".scroll").i5Scroll({
-                            mode: 'CSS', //默认通过CSS方式滚动
-                            cssSpeed: 3 // 时间默认5s
-                        });
-                    } else {
-                        Swal.fire({
-                            text: data.msg
-                        });
+                $.ajax({
+                    type: "POST",
+                    url: "../ajax/ChouJiangHandler.ashx?op=addReward",
+                    data: { "seqnum": seqnum },
+                    async: false,
+                    success: function (data) {
+                        if (data.code > 0) {
+                            getRewardwins();
+                        } else {
+                            Swal.fire({
+                                text: data.msg
+                            });
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        function getListforMask() {
-            $.ajax({
-                type: "POST",
-                url: "../ajax/ChouJiangHandler.ashx?op=getListforMask",
-                data: { "seqnum": seqnum },
-                success: function(data) {
-                    if (data.code > 0) {
-                        $("#scrollwin").html(HtmlUtil.htmlDecode(data.htmlstr));
-                    } else {
-                        Swal.fire({
-                            text: data.msg
-                        });
+            function getRewardwins() {
+                $.ajax({
+                    type: "GET",
+                    url: "../ajax/ChouJiangHandler.ashx?op=getRewardwins",
+                    success: function (data) {
+                        if (data.code > 0) {
+                            //alert(data.htmlstr);
+                            $("#scrollwin").html(HtmlUtil.htmlDecode(data.htmlstr));
+                            $(".scroll").i5Scroll({
+                                mode: 'CSS', //默认通过CSS方式滚动
+                                cssSpeed: 3 // 时间默认5s
+                            });
+                        } else {
+                            Swal.fire({
+                                text: data.msg
+                            });
+                        }
                     }
-                }
-            });
-        }
-    });
+                });
+            }
+
+            function getListforMask() {
+                $.ajax({
+                    type: "POST",
+                    url: "../ajax/ChouJiangHandler.ashx?op=getListforMask",
+                    data: { "seqnum": seqnum },
+                    success: function (data) {
+                        if (data.code > 0) {
+                            $("#scrollwin").html(HtmlUtil.htmlDecode(data.htmlstr));
+                        } else {
+                            Swal.fire({
+                                text: data.msg
+                            });
+                        }
+                    }
+                });
+            }
+        });
 
 
-</script>
+    </script>
 
 </body>
 

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mywebproject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj": {}
+    "E:\\mynetcoreProject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj": {}
   },
   "projects": {
-    "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj": {
+    "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj",
+        "projectUniqueName": "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj",
         "projectName": "Lm.Common",
-        "projectPath": "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\obj\\",
+        "projectPath": "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,21 +67,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\mywebproject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj": {
+    "E:\\mynetcoreProject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mywebproject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj",
+        "projectUniqueName": "E:\\mynetcoreProject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj",
         "projectName": "SlotMachine",
-        "projectPath": "D:\\mywebproject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\mywebproject\\SlotMachineProject\\SlotMachineDemo\\obj\\",
+        "projectPath": "E:\\mynetcoreProject\\SlotMachineProject\\SlotMachineDemo\\SlotMachine.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "E:\\mynetcoreProject\\SlotMachineProject\\SlotMachineDemo\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,8 +98,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj": {
-                "projectPath": "D:\\mywebproject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj"
+              "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj": {
+                "projectPath": "E:\\mynetcoreProject\\SlotMachineProject\\Lm.Common\\Lm.Common.csproj"
               }
             }
           }
@@ -135,7 +141,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

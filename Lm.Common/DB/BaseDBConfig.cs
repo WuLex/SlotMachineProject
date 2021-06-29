@@ -66,7 +66,7 @@ namespace Lm.Common.DB
             }
             else
             {
-                return "server=.;uid=sa;pwd=sa;database=WMBlogDB";
+                return "Data Source=.;Initial Catalog=LmDB;Integrated Security=True";
             }
         }
 

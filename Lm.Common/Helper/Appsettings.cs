@@ -21,7 +21,7 @@ namespace Lm.Common.Helper
             //Path = $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json";
             Configuration = new ConfigurationBuilder()
                 //.SetBasePath(contentPath)
-                 .SetBasePath(AppContext.BaseDirectory)
+                .SetBasePath(AppContext.BaseDirectory)
                 //这样的话，可以直接读目录里的json文件，而不是 bin 文件夹下的，所以不用修改复制属性
                 .Add(new JsonConfigurationSource {Path = Path, Optional = false, ReloadOnChange = true})
                 .Build();
@@ -49,7 +49,6 @@ namespace Lm.Common.Helper
 
             return "";
         }
-
 
         /// <summary>
         /// 封装要操作的字符
