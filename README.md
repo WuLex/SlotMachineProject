@@ -1,2 +1,4 @@
 # SlotMachineProject
-Net Core 实现抽奖机程序
+ASP.Net Core MVC 实现抽奖机功能
+
+## 如图：
