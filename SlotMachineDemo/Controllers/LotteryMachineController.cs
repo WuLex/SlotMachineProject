@@ -83,7 +83,7 @@ namespace SlotMachine.Controllers
                                    JOIN orderitem o 
                                      ON o.productvals = win.pidsquence 
                                    JOIN elevenrewardinfo erInfo 
-                                     ON erInfo.id = win.prizeid 
+                                     ON erInfo.id = win.prizeInfoId 
                                    JOIN basicinfo info 
                                      ON info.openid = o.openid 
                                    JOIN products p 
@@ -104,8 +104,6 @@ namespace SlotMachine.Controllers
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //sbscrolllist.AppendFormat("<li>恭喜{0}用户获得泰普尔{1}</li>", Security.ToStr(dt.Rows[i]["cellphone"]),
-                    //    Security.ToStr(dt.Rows[i]["productname"]));
                     sbscrolllist.AppendFormat("<li>恭喜{0}用户获得{1}</li>",
                         Regex.Replace(SecurityHelper.ToStr(dt.Rows[i]["cellphone"]), "(\\d{3})\\d{4}(\\d{4})",
                             "$1****$2"),
@@ -122,16 +120,8 @@ namespace SlotMachine.Controllers
             }
             else
             {
-                //for (int i = 0; i < dt.Rows.Count; i++)
-                //{
-                //    sbscrolllist.AppendFormat("<li>恭喜{0}用户获得泰普尔{1}</li>",
-                //        Regex.Replace(SecurityHelper.ToStr(dt.Rows[i]["cellphone"]), "(\\d{3})\\d{4}(\\d{4})", "$1****$2"),
-                //        SecurityHelper.ToStr(dt.Rows[i]["productname"]));
-                //}
             }
 
-            //string sql ="INSERT INTO OrderItem(Openid,Productvals,product1,product2,product3,product4)VALUES(@OpenID,@Productvals,@Product1,@Product2,@Product3,@Product4)";
-            //int result = await _db.Ado.ExecuteCommandAsync(sql);
         }
     }
 }

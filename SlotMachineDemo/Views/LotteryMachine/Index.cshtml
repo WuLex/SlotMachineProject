@@ -243,6 +243,7 @@
                     url: "/ChouJiang/AddReward",
                     data: { "seqnum": seqnum },
                     async: false,
+                    dataType: "json",
                     success: function (data) {
                         if (data.code > 0) {
                             getRewardwins();
@@ -259,6 +260,7 @@
                 $.ajax({
                     type: "GET",
                     url: "/ChouJiang/GetRewardwins",
+                    dataType: "json",
                     success: function (data) {
                         if (data.code > 0) {
                             //alert(data.htmlstr);
@@ -281,6 +283,7 @@
                     type: "POST",
                     url: "/ChouJiang/GetListforMask",
                     data: { "seqnum": seqnum },
+                    dataType: "json",
                     success: function (data) {
                         if (data.code > 0) {
                             $("#scrollwin").html(HtmlUtil.htmlDecode(data.htmlstr));

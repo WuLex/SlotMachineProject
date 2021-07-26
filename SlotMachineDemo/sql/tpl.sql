@@ -32,7 +32,7 @@ CREATE TABLE [dbo].[ElevenRewardControl](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[rangeid] [int] NULL,
 	[controldata] [varchar](100) NULL,
-	[prizeid] [int] NULL,
+	[prizeInfoId] [int] NULL,
 	[prizelevel] [int] NULL,
 	[ischosen] [int] NULL,
 	[createdate] [datetime] NULL,
@@ -83,7 +83,7 @@ GO
 CREATE TABLE [dbo].[ElevenRewardWin](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[pidsquence] [varchar](100) NULL,
-	[prizeid] [nchar](10) NULL,
+	[prizeInfoId] [nchar](10) NULL,
 	[reel1] [varchar](50) NULL,
 	[reel2] [varchar](50) NULL,
 	[reel3] [varchar](50) NULL,
@@ -158,7 +158,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'奖品状态' 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'对应的签注序列' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ElevenRewardWin', @level2type=N'COLUMN',@level2name=N'pidsquence'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'此签注序列对应的奖品信息的ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ElevenRewardWin', @level2type=N'COLUMN',@level2name=N'prizeid'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'此签注序列对应的奖品信息的ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ElevenRewardWin', @level2type=N'COLUMN',@level2name=N'prizeInfoId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'签注结果页需要的图片' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Products', @level2type=N'COLUMN',@level2name=N'imgurltwo'
 GO

@@ -25,7 +25,7 @@ namespace SlotMachine.Controllers
         private readonly IConfiguration Configuration;
 
         private readonly ISqlSugarClient _db;
-        private readonly string openid="NTLH3596SDSD_WE";
+        private readonly string openid = "NTLH3596SDSD_WE";
         private static IHttpContextAccessor _contextAccessor;
 
         protected StringBuilder sbscrolllist = new StringBuilder();
@@ -52,7 +52,7 @@ namespace SlotMachine.Controllers
                                    JOIN orderitem o 
                                      ON o.productvals = win.pidsquence 
                                    JOIN elevenrewardinfo erInfo 
-                                     ON erInfo.id = win.prizeid 
+                                     ON erInfo.id = win.prizeInfoId 
                                    JOIN basicinfo info 
                                      ON info.openid = o.openid 
                                    JOIN products p 
@@ -120,9 +120,9 @@ namespace SlotMachine.Controllers
         }
 
 
-        public async Task<string> AddRewardAsync(string seqpid)
+        public async Task<string> AddRewardAsync(string seqnum)
         {  //验证
-            string[] seqpidArray = seqpid.Split(new Char[] { ',' }); //返回:{"1","2.3","","4"}
+            string[] seqpidArray = seqnum.Split(new Char[] { ',' }); //返回:{"1","2.3","","4"}
             if (seqpidArray.Length != 4)
             {
                 jsonStr = "{\"code\":-101,\"msg\":\"抽奖数据存在问题，请稍后再试！\"}";
@@ -130,7 +130,7 @@ namespace SlotMachine.Controllers
             }
             else
             {
-                seqpid = String.Join(",", seqpidArray);
+                seqnum = String.Join(",", seqpidArray);
             }
 
             //SqlParameter[] sp = new SqlParameter[10];
@@ -139,7 +139,7 @@ namespace SlotMachine.Controllers
             //sp[2] = new SqlParameter("@Ischosen", 1);
             List<SugarParameter> list = new List<SugarParameter>(){
                           new SugarParameter("@OpenID",openid),
-                          new SugarParameter("@Pidsquence",seqpid),
+                          new SugarParameter("@Pidsquence",seqnum),
                           new SugarParameter("@Ischosen",1)
                         };
             //事务，更新ElevenRewardControl 的ischosen=1
@@ -161,11 +161,11 @@ namespace SlotMachine.Controllers
                                               (pidsquence, 
                                                status, 
                                                operatorid, 
-                                               prizeid) 
+                                               prizeInfoId) 
                                   SELECT @Pidsquence, 
                                          1, 
                                          @OpenID, 
-                                         prizeid 
+                                         prizeInfoId 
                                   FROM   elevenrewardcontrol 
                                   WHERE  controldata = @Pidsquence; 
 
@@ -227,9 +227,9 @@ namespace SlotMachine.Controllers
             return jsonStr;
             //return View();
         }
-        public async Task<String> GetListforMaskAsync(string seqpid)
+        public async Task<String> GetListforMaskAsync(string seqnum)
         {
-            string[] seqpidArray = seqpid.Split(new Char[] { ',' });
+            string[] seqpidArray = seqnum.Split(new Char[] { ',' });
             if (seqpidArray.Length != 4)
             {
                 jsonStr = "{\"code\":-101,\"msg\":\"抽奖数据存在问题，请稍后再试！\"}";
@@ -237,21 +237,21 @@ namespace SlotMachine.Controllers
             }
             else
             {
-                seqpid = String.Join(",", seqpidArray);
+                seqnum = String.Join(",", seqpidArray);
             }
 
             //产品html
             string sql =
                 @"select * from Products where productid in ({0}) order by CHARINDEX(RTRIM(CAST(productid as varchar)),'{0}')";
-            sql = string.Format(sql, seqpid);
+            sql = string.Format(sql, seqnum);
 
             DataTable product_dt = await _db.Ado.GetDataTableAsync(sql);
 
             //获奖的产品信息
             //SqlParameter[] sp = new SqlParameter[10];
-            //sp[0] = new SqlParameter("@Prizevalue", seqpid);
+            //sp[0] = new SqlParameter("@Prizevalue", seqnum);
             List<SugarParameter> list = new List<SugarParameter>(){
-                          new SugarParameter("@Prizevalue",seqpid) };
+                          new SugarParameter("@Prizevalue",seqnum) };
 
             string winproductsql = @"SELECT er.prizelevel, 
                                        er.prizevalue, 
@@ -261,7 +261,7 @@ namespace SlotMachine.Controllers
                                        JOIN products p 
                                        ON er.winproductid = p.productid 
                                        JOIN elevenrewardwin win 
-                                       ON er.id = win.prizeid 
+                                       ON er.id = win.prizeInfoId 
                                  WHERE  win.pidsquence = @Prizevalue; ";
 
             DataTable winproduct_dt = await _db.Ado.GetDataTableAsync(winproductsql, list);
