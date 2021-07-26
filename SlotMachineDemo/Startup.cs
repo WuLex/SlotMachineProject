@@ -38,6 +38,8 @@ namespace SlotMachine
             //{
             //   // o.Filters.Add(typeof(GlobalExceptionsFilter)); // 全局异常过滤
             //});
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllersWithViews();
         
             services.DbInitialization(_env);

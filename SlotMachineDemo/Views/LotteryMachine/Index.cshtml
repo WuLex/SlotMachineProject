@@ -1,5 +1,5 @@
 ﻿@{
-   Layout = null;
+    Layout = null;
 }
 
 
@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>决战双十一</title>
+    <title>抽奖小例子</title>
 
     <link rel="stylesheet" href="~/css/app.css">
     <link rel="stylesheet" href="~/css/style.css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="~/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="~/js/rem.js"></script>
     <script type="text/javascript" src="~/js/sweetalert2.js"></script>
-    <script type="text/javascript" src="/js/HtmlUtil.js"></script>
+    <script type="text/javascript" src="~/js/HtmlUtil.js"></script>
     <style type="text/css">
         /*alert弹出框，字体大小修改*/
         .swal2-content {
@@ -44,42 +44,42 @@
 <body>
     <div class="" id="wrapper-index1">
         <div class="logo">
-            <img src="/images/logo.png" />
+            <img src="/images/logoOne.png" />
         </div>
         <div class="game">
             <!--抽奖滚动-->
             <div class="slotwrapper" id="scrolllist">
                 <ul>
                     @*<li>
-                        <img src="images/game1.png" />
-                    </li>
-                    <li>
-                        <img src="images/game2.png" />
-                    </li>
-                    <li>
-                        <img src="images/game3.png" />
-                    </li>
-                    <li>
-                        <img src="images/game4.png" />
-                    </li>
-                    <li>
-                        <img src="images/game3.png" />
-                    </li>
-                    <li>
-                        <img src="images/game4.png" />
-                    </li>
-                    <li>
-                        <img src="images/game3.png" />
-                    </li>
-                    <li>
-                        <img src="images/game4.png" />
-                    </li>
-                    <li>
-                        <img src="images/game3.png" />
-                    </li>
-                    <li>
-                        <img src="images/game4.png" />
-                    </li>*@
+                            <img src="images/game1.png" />
+                        </li>
+                        <li>
+                            <img src="images/game2.png" />
+                        </li>
+                        <li>
+                            <img src="images/game3.png" />
+                        </li>
+                        <li>
+                            <img src="images/game4.png" />
+                        </li>
+                        <li>
+                            <img src="images/game3.png" />
+                        </li>
+                        <li>
+                            <img src="images/game4.png" />
+                        </li>
+                        <li>
+                            <img src="images/game3.png" />
+                        </li>
+                        <li>
+                            <img src="images/game4.png" />
+                        </li>
+                        <li>
+                            <img src="images/game3.png" />
+                        </li>
+                        <li>
+                            <img src="images/game4.png" />
+                        </li>*@
 
                     @Html.Raw(ViewBag.sbProductlistone)
                 </ul>
@@ -96,7 +96,7 @@
 
             <div class="game-btn">
                 <a href="javascript:void(0);">
-                    <img src="/images/btn.png" />
+                    <img src="/images/btnstart.png" />
                 </a>
             </div>
 
@@ -133,18 +133,15 @@
                     </li>
                     <li>
                         <img src="/images/list17-1.png" />
-                         
-                        @*<p style="position: relative; top: -.07rem;">G-Curve 电动床</p>*@ 
-
                         <p>40+电动床</p>
                     </li>
                 </ul>
             </div>
         </div>
-        <%--<button type="button" id="btntest2">开始!</button>--%>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="/js/lottery.js"></script>
     <script src="/js/i5scroll.js"></script>
 
     <script type="text/javascript">
@@ -162,7 +159,7 @@
                 cssSpeed: 5 // 时间默认5s
             });
         })
-           
+
     </script>
     <script type="text/javascript">
         $(function () {
@@ -197,7 +194,8 @@
                 //sound.play(); //点击后开始播放声音
                 $.ajax({
                     type: "GET",
-                    url: "../ajax/ChouJiangHandler.ashx?op=getRandomArry",
+                    url: "/ChouJiang/GetRandomArry",
+                    dataType: "json",
                     success: function (data) {
                         if (data.code > 0 && data.IdArry.length > 0) {
                             var arrys = data.IdArry.split(',');
@@ -242,7 +240,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "../ajax/ChouJiangHandler.ashx?op=addReward",
+                    url: "/ChouJiang/AddReward",
                     data: { "seqnum": seqnum },
                     async: false,
                     success: function (data) {
@@ -260,7 +258,7 @@
             function getRewardwins() {
                 $.ajax({
                     type: "GET",
-                    url: "../ajax/ChouJiangHandler.ashx?op=getRewardwins",
+                    url: "/ChouJiang/GetRewardwins",
                     success: function (data) {
                         if (data.code > 0) {
                             //alert(data.htmlstr);
@@ -281,7 +279,7 @@
             function getListforMask() {
                 $.ajax({
                     type: "POST",
-                    url: "../ajax/ChouJiangHandler.ashx?op=getListforMask",
+                    url: "/ChouJiang/GetListforMask",
                     data: { "seqnum": seqnum },
                     success: function (data) {
                         if (data.code > 0) {
