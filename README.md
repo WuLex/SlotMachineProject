@@ -1,6 +1,10 @@
 # SlotMachineProject
 ASP.Net Core MVC 实现抽奖机功能
 
+---------------------
+
+ASP.Net Core MVC implements lottery machine function
+
 ## 表说明：
 1. OrderItem 记录用户在另一网站提交的抽奖顺序（4个商品）
 2. ElevenRewardControl 后台设置抽奖出现顺序（4个商品），也可以设置对应的奖的等级
