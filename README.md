@@ -12,4 +12,4 @@ ASP.Net Core MVC implements lottery machine function
 4. ElevenRewardWin 中奖表，配合页面效果，可以随机，也可以通过ElevenRewardControl设置
 
 ## 如图：
-![image](https://github.com/WuLex/UsefulPicture/blob/master/screenshots/slotmachine.png?raw=true)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/screenshots/slotmachine.png)
