@@ -1,38 +1,33 @@
+using Lm.Common.Helper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using SqlSugar;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Net.Mime;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Lm.Common.Helper;
-using Microsoft.Extensions.Configuration;
-using SqlSugar;
 
 namespace SlotMachine.Controllers
 {
     public class LotteryMachineController : Controller
     {
-        protected StringBuilder sbProductlist= new StringBuilder();
+        protected StringBuilder sbProductlist = new StringBuilder();
 
         protected StringBuilder sbscrolllist = new StringBuilder();
 
-        int wincount = 0;
+        private int wincount = 0;
 
         private readonly IConfiguration Configuration;
 
         private readonly ISqlSugarClient _db;
-
 
         public LotteryMachineController(IConfiguration configuration, ISqlSugarClient db)
         {
             Configuration = configuration;
             _db = db;
         }
-
 
         // GET: LotteryMachineController
         [HttpGet]
@@ -52,6 +47,12 @@ namespace SlotMachine.Controllers
             return View();
         }
 
+
+        //public async Task<ActionResult> MiniGameOne()
+        //{
+        //    return View();
+        //}
+
         private async Task GetProductlist()
         {
             var sqlstr = "select * from Products;";
@@ -67,8 +68,8 @@ namespace SlotMachine.Controllers
                                             "\">");
                     sbProductlist.Append("</li>");
                 }
- 
-            ViewBag.sbProductlistone= sbProductlist;
+
+            ViewBag.sbProductlistone = sbProductlist;
             ViewBag.sbProductlisttwo = sbProductlist;
             ViewBag.sbProductlistthree = sbProductlist;
             ViewBag.sbProductlistfour = sbProductlist;
@@ -77,16 +78,16 @@ namespace SlotMachine.Controllers
         private async Task GetScrollList()
         {
             string SqlStr = @"SELECT info.cellphone,erInfo.prizedesc,
-                                   p.productname, 
-                                   win.* 
-                            FROM   elevenrewardwin win 
-                                   JOIN orderitem o 
-                                     ON o.productvals = win.pidsquence 
-                                   JOIN elevenrewardinfo erInfo 
-                                     ON erInfo.id = win.prizeInfoId 
-                                   JOIN basicinfo info 
-                                     ON info.openid = o.openid 
-                                   JOIN products p 
+                                   p.productname,
+                                   win.*
+                            FROM   elevenrewardwin win
+                                   JOIN orderitem o
+                                     ON o.productvals = win.pidsquence
+                                   JOIN elevenrewardinfo erInfo
+                                     ON erInfo.id = win.prizeInfoId
+                                   JOIN basicinfo info
+                                     ON info.openid = o.openid
+                                   JOIN products p
                                      ON p.productid = erInfo.winproductid order by win.id";
 
             DataTable dt = await _db.Ado.GetDataTableAsync(SqlStr);
@@ -121,7 +122,6 @@ namespace SlotMachine.Controllers
             else
             {
             }
-
         }
     }
 }

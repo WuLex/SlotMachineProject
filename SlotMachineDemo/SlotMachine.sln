@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31313.79
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlotMachine", "SlotMachine.csproj", "{9F82B78B-EAC4-4868-AA34-7A07DE5360A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lm.Common", "..\Lm.Common\Lm.Common.csproj", "{184FFE7A-FB64-4144-9B12-ABEF87AD1B7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lm.Common", "..\Lm.Common\Lm.Common.csproj", "{184FFE7A-FB64-4144-9B12-ABEF87AD1B7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachineAPI", "..\SlotMachineAPI\SlotMachineAPI.csproj", "{1A62B34F-204D-472E-A925-CFDA8354C917}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{184FFE7A-FB64-4144-9B12-ABEF87AD1B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184FFE7A-FB64-4144-9B12-ABEF87AD1B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184FFE7A-FB64-4144-9B12-ABEF87AD1B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A62B34F-204D-472E-A925-CFDA8354C917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A62B34F-204D-472E-A925-CFDA8354C917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A62B34F-204D-472E-A925-CFDA8354C917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A62B34F-204D-472E-A925-CFDA8354C917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

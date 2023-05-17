@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using System;
+using System.Linq;
 
 namespace Lm.Common.Helper
 {
@@ -10,7 +10,7 @@ namespace Lm.Common.Helper
     /// </summary>
     public class Appsettings
     {
-        static IConfiguration Configuration { get; set; }
+        private static IConfiguration Configuration { get; set; }
 
         //static string contentPath { get; set; }
 
@@ -23,7 +23,7 @@ namespace Lm.Common.Helper
                 //.SetBasePath(contentPath)
                 .SetBasePath(AppContext.BaseDirectory)
                 //这样的话，可以直接读目录里的json文件，而不是 bin 文件夹下的，所以不用修改复制属性
-                .Add(new JsonConfigurationSource {Path = Path, Optional = false, ReloadOnChange = true})
+                .Add(new JsonConfigurationSource { Path = Path, Optional = false, ReloadOnChange = true })
                 .Build();
         }
 
@@ -41,7 +41,7 @@ namespace Lm.Common.Helper
             {
                 Configuration = new ConfigurationBuilder()
                     .SetBasePath(basepath)
-                    .Add(new JsonConfigurationSource {Path = fileName, Optional = false, ReloadOnChange = true})
+                    .Add(new JsonConfigurationSource { Path = fileName, Optional = false, ReloadOnChange = true })
                     .Build();
 
                 return Configuration[contentPath];

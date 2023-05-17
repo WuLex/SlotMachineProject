@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.59" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lm.Common\Lm.Common.csproj" />
+  </ItemGroup>
+
+</Project>

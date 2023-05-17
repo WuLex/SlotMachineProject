@@ -1,0 +1,300 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Slot Machine Game</title>
+ @*   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eeeeee;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .slot-machine {
+            margin: 50px auto;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+            .reel img {
+                width: 200px;
+                height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .reel:nth-child(2) {
+                left: 200px;
+            }
+
+            .reel:nth-child(3) {
+                left: 400px;
+            }
+
+        .spin-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .spin-button:hover {
+                background-color: #cc0000;
+            }
+
+        .result {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+            .result h2 {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            .result p {
+                font-size: 24px;
+                margin: 0;
+            }
+    </style>*@
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eeeeee;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .slot-machine {
+            margin: 50px auto;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+            .reel img {
+                width: 200px;
+                height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .reel:nth-child(2) {
+                left: 200px;
+            }
+
+            .reel:nth-child(3) {
+                left: 400px;
+            }
+
+        .spin-button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .spin-button:hover {
+                background-color: #cc0000;
+            }
+
+        .result {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+            .result h2 {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            .result p {
+                font-size: 24px;
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    <h1>Slot Machine Game</h1>
+
+    <div class="slot-machine">
+        <div class="reel">
+            <img src="/images/lemon.png" alt="Lemon" />
+            <img src="/images/orange.png" alt="Orange" />
+            <img src="/images/cherry.png" alt="Cherry" />
+            <img src="/images/watermelon.png" alt="Watermelon" />
+            <img src="/images/bar.png" alt="Bar" />
+            <img src="/images/seven.png" alt="Seven" />
+        </div>
+        <div class="reel">
+            <img src="/images/seven.png" alt="Seven" />
+            <img src="/images/cherry.png" alt="Cherry" />
+            <img src="/images/orange.png" alt="Orange" />
+            <img src="/images/lemon.png" alt="Lemon" />
+            <img src="/images/bar.png" alt="Bar" />
+            <img src="/images/watermelon.png" alt="Watermelon" />
+        </div>
+        <div class="reel">
+            <img src="/images/watermelon.png" alt="Watermelon" />
+            <img src="/images/cherry.png" alt="Cherry" />
+            <img src="/images/bar.png" alt="Bar" />
+            <img src="/images/orange.png" alt="Orange" />
+            <img src="/images/lemon.png" alt="Lemon" />
+        </div>
+    </div>
+    <button class="spin-button">Spin</button>
+    <div class="result">
+        <h2>Result</h2>
+        <p id="result-text"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+                var reelPositions = [0, 0, 0]; // the starting position of each reel
+                var reelSpeeds = [0, 0, 0]; // the speed of each reel
+                var reelStops = [0, 0, 0]; // the stopping position of each reel
+                var isRandom = false; // whether to use random algorithm to stop reels or not
+                var result = null; // the result of the spin
+
+                // function to start spinning the reels
+                function spin() {
+                    // disable the spin button during spinning
+                    $('.spin-button').prop('disabled', true);
+
+                    // calculate the stopping position of each reel
+                    if (isRandom) {
+                        // use random algorithm to stop reels
+                        reelStops = [
+                            Math.floor(Math.random() * 6),
+                            Math.floor(Math.random() * 6),
+                            Math.floor(Math.random() * 6)
+                        ];
+                    } else {
+                        // use server data to stop reels
+                        $.ajax({
+                    url: 'http://localhost:5180/api/reelstopsdata',
+                            method: 'GET',
+                            success: function(response) {
+                                reelStops = response;
+                            },
+                            error: function() {
+                                alert('Failed to get reel stops from server.');
+                            }
+                        });
+                    }
+
+                    // set the speed of each reel
+                    reelSpeeds = [
+                        Math.floor(Math.random() * 10) + 10,
+                        Math.floor(Math.random() * 10) + 10,
+                        Math.floor(Math.random() * 10) + 10
+                    ];
+
+                    // start the spinning animation
+                    requestAnimationFrame(spinAnimation);
+                }
+
+                // function to animate the spinning of the reels
+                function spinAnimation() {
+                    // update the position of each reel based on its speed
+                    for (var i = 0; i < 3; i++) {
+                        reelPositions[i] += reelSpeeds[i];
+                        if (reelPositions[i] >= 600) {
+                            reelPositions[i] -= 600;
+                        }
+                    }
+
+                    // update the position of each reel in the DOM
+                    for (var i = 0; i < 3; i++) {
+                        $('.reel').eq(i).css('top', -reelPositions[i] + 'px');
+                    }
+
+                    // check if all reels have stopped
+                    if (reelPositions[0] == reelStops[0] && reelPositions[1] == reelStops[1] && reelPositions[2] == reelStops[2]) {
+                        // stop the spinning animation
+                        cancelAnimationFrame(spinAnimation);
+
+                        // enable the spin button
+                        $('.spin-button').prop('disabled', false);
+
+                        // determine the result
+                        if (reelStops[0] == reelStops[1] && reelStops[1] == reelStops[2]) {
+                            result = 'Jackpot! You won 100 coins!';
+                        } else if (reelStops[0] == reelStops[1] || reelStops[1] == reelStops[2] || reelStops[0] == reelStops[2]) {
+                        result = 'Congratulations! You won 10 coins!';
+                        } else {
+                        result = 'Sorry, better luck next time.';
+                        }
+
+                    // display the result
+                    $('#result-text').text(result);
+                } else {
+                    // continue spinning the reels
+                    requestAnimationFrame(spinAnimation);
+                }
+            }
+
+            // event listener for spin button click
+            $('.spin-button').click(function() {
+                result = null;
+                spin();
+            });
+
+            // event listener for random switch toggle
+            $('#random-switch').change(function() {
+                isRandom = $(this).is(':checked');
+            });
+    </script>
+</body>
+</html>

@@ -16,9 +16,21 @@ namespace Lm.Common.Helper
         /// <returns></returns>
         public static string MD5Encrypt16(string password)
         {
-            var md5 = new MD5CryptoServiceProvider();
-            string t2 = BitConverter.ToString(md5.ComputeHash(Encoding.Default.GetBytes(password)), 4, 8);
-            t2 = t2.Replace("-", string.Empty);
+            //var md5 = new MD5CryptoServiceProvider();
+            //string t2 = BitConverter.ToString(md5.ComputeHash(Encoding.Default.GetBytes(password)), 4, 8);
+            //t2 = t2.Replace("-", string.Empty);
+
+            //byte[] hash = (new ASCIIEncoding()).GetBytes(password);
+            //using (var md5 = MD5.Create())
+            //    hash = md5.ComputeHash(hash);
+            //return (new ASCIIEncoding()).GetString(hash);
+
+            string t2=string.Empty; 
+            using (var md5 = MD5.Create())
+            {
+                t2 = BitConverter.ToString(md5.ComputeHash(Encoding.Default.GetBytes(password)), 4, 8);
+                t2 = t2.Replace("-", string.Empty);
+            }
             return t2;
         }
 

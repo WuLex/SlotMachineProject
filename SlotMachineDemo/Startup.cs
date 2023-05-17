@@ -42,6 +42,7 @@ namespace SlotMachine
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllersWithViews();
         
+            //初始化sqlsugar,注入单例生命周期
             services.DbInitialization(_env);
 
         }
